@@ -1,0 +1,27 @@
+{
+  "name": "tampermonkey-youtube-shorts-never-overflow-view",
+  "version": "1.0.0",
+  "description": "端末サイズが Shorts の縦横比に合わないとき、見切れの代わりに余白を入れて動画全体を表示する Tampermonkey スクリプト",
+  "main": "youtube-shorts-never-overflow-view.user.js",
+  "scripts": {
+    "typecheck": "tsc",
+    "lint": "bun run eslint ; bun run prettier",
+    "eslint": "eslint youtube-shorts-never-overflow-view.user.js",
+    "prettier": "prettier youtube-shorts-never-overflow-view.user.js > /dev/null && echo 'Prettier: No issues found' || echo 'Prettier: Issues found'",
+    "fix": "bun run eslint:fix && bun run prettier:fix",
+    "eslint:fix": "eslint --fix youtube-shorts-never-overflow-view.user.js",
+    "prettier:fix": "prettier --write youtube-shorts-never-overflow-view.user.js"
+  },
+  "author": "aiya000",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/tampermonkey": "^5.0.5",
+    "eslint": "^9.39.4",
+    "eslint-plugin-import-x": "^4.16.2",
+    "eslint-plugin-n": "^17.24.0",
+    "eslint-plugin-promise": "^7.2.1",
+    "prettier": "3.6.2",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.57.1"
+  }
+}
