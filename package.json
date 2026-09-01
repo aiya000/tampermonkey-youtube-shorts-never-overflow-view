@@ -1,7 +1,7 @@
 {
   "name": "tampermonkey-youtube-shorts-never-overflow-view",
   "version": "1.0.0",
-  "description": "端末サイズが Shorts の縦横比に合わないとき、見切れの代わりに余白を入れて動画全体を表示する Tampermonkey スクリプト",
+  "description": "A Tampermonkey script that letterboxes / pillarboxes a YouTube Shorts video instead of clipping it, when the viewport aspect ratio does not match 9:16",
   "main": "youtube-shorts-never-overflow-view.user.js",
   "scripts": {
     "typecheck": "tsc",

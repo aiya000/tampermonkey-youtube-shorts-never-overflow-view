@@ -105,13 +105,13 @@ Do not write "overview" or "step" comments as standalone `//` comments above or 
 
 ```js
 // Bad — standalone comment above JSDoc
-// el はカード要素またはその子孫
+// el is a card element or its descendant
 /**
  * @param {Element} el
  */
 function getMessageId(el) {
-  // ステップ1: IDを取り出す
-  // ステップ2: フォールバック
+  // Step 1: extract the ID
+  // Step 2: fall back
 }
 
 // Good — all description in JSDoc
@@ -226,7 +226,7 @@ When properties need descriptions, use `@typedef` + `@property` instead of inlin
 // Bad — no room for property descriptions
 /**
  * @type {{
- *   panel: HTMLElement | null, // 注入済みパネル要素
+ *   panel: HTMLElement | null, // The injected panel element
  * }}
  */
 

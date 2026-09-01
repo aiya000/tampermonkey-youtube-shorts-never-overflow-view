@@ -6,32 +6,31 @@ When the viewport aspect ratio does not match the 9:16 of Shorts, YouTube scales
 whatever does not fit, so the top / bottom (or left / right) of the video gets cut off.
 This script replaces that behavior with letterboxing / pillarboxing, so the whole video always fits on screen.
 
-## 動作
+## Behavior
 
-- 端末が横に余っているとき → **full-height** で表示し、左右に余白を入れる
-- 端末が縦に余っているとき → **full-width** で表示し、上下に余白を入れる
+- Viewport relatively wide → shown at **full-height**, with bars on the left and right
+- Viewport relatively tall → shown at **full-width**, with bars on the top and bottom
 
-仕組みは単純で、Shorts のプレイヤーの `<video>` に `object-fit: contain` を `!important` で
-上書きしているだけです。YouTube が付けるサイズ指定はインラインスタイル（`!important` なし）なので、
-CSS 側で確実に勝てます。
+The mechanism is simple: it overrides the Shorts player's `<video>` with `object-fit: contain` using
+`!important`. YouTube applies its sizing via inline styles without `!important`, so the CSS reliably wins.
 
-通常の watch ページやミニプレイヤーを壊さないよう、CSS は `/shorts` にいる間だけ有効になります
-（`<html>` に付けた `ysnov-active` クラスでスコープしています）。
+The CSS is only active while you are on a `/shorts` route (scoped by the `ysnov-active` class on `<html>`),
+so the regular watch page and the miniplayer stay untouched.
 
-## インストール
+## Installation
 
-1. ブラウザに [Tampermonkey](https://www.tampermonkey.net/) をインストール
-2. [youtube-shorts-never-overflow-view.user.js](https://raw.githubusercontent.com/aiya000/tampermonkey-youtube-shorts-never-overflow-view/refs/heads/main/youtube-shorts-never-overflow-view.user.js) を Tampermonkey にインストール
+1. Install [Tampermonkey](https://www.tampermonkey.net/) in your browser
+2. Install [youtube-shorts-never-overflow-view.user.js](https://raw.githubusercontent.com/aiya000/tampermonkey-youtube-shorts-never-overflow-view/refs/heads/main/youtube-shorts-never-overflow-view.user.js) into Tampermonkey
 
-## 対応 URL
+## Supported URLs
 
 - `https://www.youtube.com/*`
 - `https://m.youtube.com/*`
 - `https://youtube.com/*`
 
-`/shorts` 配下のページでのみ動作します。
+Only pages under `/shorts` are affected.
 
-## 開発
+## Development
 
 ```console
 $ bun install
